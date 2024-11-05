@@ -113,6 +113,7 @@ exports.init_routes = async (app) => {
     app.post('/api/:app_url/:query_url',
         [lock_service.check, users_service.check_authenticate],
         async (req, res) => {
+            var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
             var app_url = req.params.app_url;
             var query_url = req.params.query_url;
             var query_params = req.body;
@@ -124,7 +125,8 @@ exports.init_routes = async (app) => {
                 url: `${app_url}/${query_url}`,
                 request: query_params,
                 response: response,
-                user : current_user !== null ? current_user.user_name : null
+                user : current_user !== null ? current_user.user_name : null,
+                ip : ip
             });
 
             res.send(response);

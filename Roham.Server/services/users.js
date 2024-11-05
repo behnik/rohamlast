@@ -282,23 +282,43 @@ exports.insert_user = async (user) => {
 
 //#region routes
 
-exports.init_routes = async(app)=>{
+exports.init_routes = async (app) => {
     app.post('/api/users/login',
         [lock_service.check],
         async (req, res) => {
+            var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
             var user_name = req.body.user_name;
             var password = req.body.password;
 
             var response = await this.authenticate(user_name, password);
             await db.add_api_log({
                 url: `users/login`,
-                request: { user_name : user_name },
+                request: { user_name: user_name },
                 response: response,
-                user : null
+                user: null,
+                ip: ip
             });
 
             res.send(response);
         });
+
+    app.post('/api/logout',
+        [this.check_authenticate],
+        async (req, res) => {
+            var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+            var current_user = req.user;
+
+            await db.add_api_log({
+                url: `users/logout`,
+                request: null,
+                response: null,
+                user: current_user.user_name,
+                ip: ip
+            });
+
+            res.send({ code : 200 });
+        }
+    );
 
     app.post('/api/users/change-password',
         [lock_service.check, this.check_authenticate],
