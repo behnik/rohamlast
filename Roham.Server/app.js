@@ -20,7 +20,6 @@ app.use(fileUpload());
 
 app.set('trust proxy', 1)
 
-
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minutes
     limit: 1000, // Limit each IP to 1000 requests per `window` (here, per 1 minutes).
@@ -66,10 +65,6 @@ else {
          network.get_current_ip((addr) => {
              server.listen(BASE_PORT, addr, async () => { await init(addr); });
          });
-
-        //server.listen(BASE_PORT,
-        //    BASE_HOST,
-        //    async () => { await init(); });
     }
 
     serve();

@@ -2,7 +2,9 @@ const db = require('./db');
 
 exports.get_default_role = async () => {
     return await db.exec_query(
-        `select * from roles where is_default = 1;`
+        `select id,title,is_admin,is_default,is_super_admin,is_normal_user 
+        from roles 
+        where is_default = 1;`
     );
 };
 
