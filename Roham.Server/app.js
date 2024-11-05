@@ -1,23 +1,25 @@
 const express = require("express");
 const cors = require("cors");
 const { rateLimit } = require("express-rate-limit");
+const fileUpload = require("express-fileupload");
+const http = require("http");
 
 require('dotenv').config();
-
-const http = require("http");
 
 var app = express();
 
 //app.set('lock_check', { exist: false });
 
 app.use(cors());
-const fileUpload = require("express-fileupload");
 
 app.use(express.static("public"));
 app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb" ,extended: true }));
 
 app.use(fileUpload());
+
+app.set('trust proxy', 1)
+
 
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minutes
