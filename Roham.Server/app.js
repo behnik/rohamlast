@@ -36,10 +36,11 @@ app.use(limiter);
 const server = http.createServer(app);
 
 const BASE_PORT = process.env.BASE_PORT;// || 3000;
-const BASE_HOST = process.env.BASE_HOST;// || 3000;
+//const BASE_HOST = process.env.BASE_HOST;// || 3000;
 
+console.log(BASE_PORT);
 if (BASE_PORT === undefined){// || BASE_HOST === undefined) {
-    console.log('choose correct BASE_PORT or BASE_HOST;');
+    console.log('choose correct BASE_PORT;');
 }
 else {
     const routes = require('./services/routes');
