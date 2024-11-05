@@ -75,3 +75,11 @@ exports.get_config = async (config_name) => {
     );
     return config[0].value;
 };
+
+exports.add_api_log = async (log) => {
+    return await this.exec_query(
+        `insert into api_logs(url,request,response,user)
+        values(:url,:request,:response,:user);`
+        , log
+    );
+};

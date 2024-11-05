@@ -289,7 +289,15 @@ exports.init_routes = async(app)=>{
             var user_name = req.body.user_name;
             var password = req.body.password;
 
-            res.send(await this.authenticate(user_name, password));
+            var response = await this.authenticate(user_name, password);
+            await db.add_api_log({
+                url: `users/login`,
+                request: { user_name : user_name },
+                response: response,
+                user : null
+            });
+
+            res.send(response);
         });
 
     app.post('/api/users/change-password',

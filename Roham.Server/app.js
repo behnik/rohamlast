@@ -26,7 +26,7 @@ const limiter = rateLimit({
     standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
     message: async (req, res) => {
-        return 'You can only make 1200 requests every hour.'
+        return 'You can only make 1000 requests every hour.'
     },
 })
 
@@ -37,7 +37,7 @@ const server = http.createServer(app);
 const BASE_PORT = process.env.BASE_PORT;// || 3000;
 //const BASE_HOST = process.env.BASE_HOST;// || 3000;
 
-console.log(BASE_PORT);
+//console.log(BASE_PORT);
 if (BASE_PORT === undefined){// || BASE_HOST === undefined) {
     console.log('choose correct BASE_PORT;');
 }

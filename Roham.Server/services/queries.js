@@ -45,7 +45,7 @@ exports.exec_query = async (app_url, query_url, current_user, query_params) => {
                             }
                         }
                         else {
-                            console.log(`query type is ${query.type}`);
+                            //console.log(`query type is ${query.type}`);
                             await eval(query_content);
                             var result = await execute({
                                 current_user,
@@ -53,7 +53,7 @@ exports.exec_query = async (app_url, query_url, current_user, query_params) => {
                                 app_url
                             });
 
-                            console.log(result);
+                            //console.log(result);
                             return result;
                         }
                     }
@@ -118,6 +118,15 @@ exports.init_routes = async (app) => {
             var query_params = req.body;
             var current_user = req.user;
 
-            res.send(await this.exec_query(app_url, query_url, current_user, query_params));
+            var response = await this.exec_query(app_url, query_url, current_user, query_params);
+
+            await db.add_api_log({
+                url: `${app_url}/${query_url}`,
+                request: query_params,
+                response: response,
+                user : current_user !== null ? current_user.user_name : null
+            });
+
+            res.send(response);
         });
 };
