@@ -8,8 +8,6 @@ require('dotenv').config();
 
 var app = express();
 
-//app.set('lock_check', { exist: false });
-
 app.use(cors());
 
 app.use(express.static("public"));

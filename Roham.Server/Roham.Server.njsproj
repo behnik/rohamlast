@@ -1,0 +1,157 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Roham.Server</Name>
+    <RootNamespace>Roham.Server</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>65b43dbd-7e92-49fb-9c1d-2b5ae8dc70cb</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <StartWebBrowser>false</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".env" />
+    <Content Include="app.js" />
+    <Content Include="crons\files.js" />
+    <Content Include="package.json" />
+    <Content Include="public\css\bootstrap.rtl.min.css" />
+    <Content Include="public\css\login.css" />
+    <Content Include="public\css\responsive.css" />
+    <Content Include="public\html\1.js" />
+    <Content Include="public\img\1.jpg" />
+    <Content Include="public\img\favicon-32x32.png" />
+    <Content Include="public\img\logo.ico" />
+    <Content Include="public\img\logo.png" />
+    <Content Include="public\img\logo1.png" />
+    <Content Include="public\img\logo_dark.png" />
+    <Content Include="public\js\bootstrap.min.js" />
+    <Content Include="public\js\jquery.min.js" />
+    <Content Include="public\layouts\layout3\css\bundle.min.css" />
+    <Content Include="public\layouts\layout3\fonts\fonts\vazir\Vazirmatn-Regular.ttf" />
+    <Content Include="public\layouts\layout3\fonts\fonts\vazir\Vazirmatn-Regular.woff" />
+    <Content Include="public\layouts\layout3\fonts\fonts\vazir\Vazirmatn-Regular.woff2" />
+    <Content Include="public\layouts\layout3\js\bundle.min.js" />
+    <Content Include="public\layouts\layout3\plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="public\layouts\layout3\plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="public\libs\js\fa.json" />
+    <Content Include="public\monaco\vs\base\browser\ui\codicons\codicon\codicon.ttf" />
+    <Content Include="public\monaco\vs\base\worker\workerMain.js" />
+    <Content Include="public\monaco\vs\base\worker\workerMain.js.map" />
+    <Content Include="public\monaco\vs\basic-languages\css\css.js" />
+    <Content Include="public\monaco\vs\basic-languages\graphql\graphql.js" />
+    <Content Include="public\monaco\vs\basic-languages\handlebars\handlebars.js" />
+    <Content Include="public\monaco\vs\basic-languages\html\html.js" />
+    <Content Include="public\monaco\vs\basic-languages\javascript\javascript.js" />
+    <Content Include="public\monaco\vs\basic-languages\mysql\mysql.js" />
+    <Content Include="public\monaco\vs\basic-languages\python\python.js" />
+    <Content Include="public\monaco\vs\basic-languages\razor\razor.js" />
+    <Content Include="public\monaco\vs\basic-languages\sql\sql.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.css" />
+    <Content Include="public\monaco\vs\editor\editor.main.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.js.map" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.de.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.es.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.fr.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.it.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.ja.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.ko.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.ru.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.zh-cn.js" />
+    <Content Include="public\monaco\vs\editor\editor.main.nls.zh-tw.js" />
+    <Content Include="public\monaco\vs\language\css\cssMode.js" />
+    <Content Include="public\monaco\vs\language\css\cssWorker.js" />
+    <Content Include="public\monaco\vs\language\html\htmlMode.js" />
+    <Content Include="public\monaco\vs\language\html\htmlWorker.js" />
+    <Content Include="public\monaco\vs\language\json\jsonMode.js" />
+    <Content Include="public\monaco\vs\language\json\jsonWorker.js" />
+    <Content Include="public\monaco\vs\language\typescript\tsMode.js" />
+    <Content Include="public\monaco\vs\language\typescript\tsWorker.js" />
+    <Content Include="public\monaco\vs\loader.js" />
+    <Content Include="public\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="README.md" />
+    <Content Include="services\computers.js" />
+    <Content Include="services\cryptos.js" />
+    <Content Include="services\db.js" />
+    <Content Include="services\files.js" />
+    <Content Include="services\lock.js" />
+    <Content Include="services\network.js" />
+    <Content Include="services\pages.js" />
+    <Content Include="services\permissions.js" />
+    <Content Include="services\queries.js" />
+    <Content Include="services\reports.js" />
+    <Content Include="services\roles.js" />
+    <Content Include="services\routes.js" />
+    <Content Include="services\socket.js" />
+    <Content Include="services\users.js" />
+    <Content Include="services\widgets.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="crons\" />
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\html\" />
+    <Folder Include="public\img\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\layouts\" />
+    <Folder Include="public\layouts\layout3\" />
+    <Folder Include="public\layouts\layout3\css\" />
+    <Folder Include="public\layouts\layout3\fonts\" />
+    <Folder Include="public\layouts\layout3\fonts\fonts\" />
+    <Folder Include="public\layouts\layout3\fonts\fonts\vazir\" />
+    <Folder Include="public\layouts\layout3\js\" />
+    <Folder Include="public\layouts\layout3\plugins\" />
+    <Folder Include="public\layouts\layout3\plugins\fontawesome-free\" />
+    <Folder Include="public\layouts\layout3\plugins\fontawesome-free\webfonts\" />
+    <Folder Include="public\libs\" />
+    <Folder Include="public\libs\js\" />
+    <Folder Include="public\monaco\" />
+    <Folder Include="public\monaco\vs\" />
+    <Folder Include="public\monaco\vs\base\" />
+    <Folder Include="public\monaco\vs\base\browser\" />
+    <Folder Include="public\monaco\vs\base\browser\ui\" />
+    <Folder Include="public\monaco\vs\base\browser\ui\codicons\" />
+    <Folder Include="public\monaco\vs\base\browser\ui\codicons\codicon\" />
+    <Folder Include="public\monaco\vs\base\worker\" />
+    <Folder Include="public\monaco\vs\basic-languages\" />
+    <Folder Include="public\monaco\vs\basic-languages\css\" />
+    <Folder Include="public\monaco\vs\basic-languages\graphql\" />
+    <Folder Include="public\monaco\vs\basic-languages\handlebars\" />
+    <Folder Include="public\monaco\vs\basic-languages\html\" />
+    <Folder Include="public\monaco\vs\basic-languages\javascript\" />
+    <Folder Include="public\monaco\vs\basic-languages\mysql\" />
+    <Folder Include="public\monaco\vs\basic-languages\python\" />
+    <Folder Include="public\monaco\vs\basic-languages\razor\" />
+    <Folder Include="public\monaco\vs\basic-languages\sql\" />
+    <Folder Include="public\monaco\vs\editor\" />
+    <Folder Include="public\monaco\vs\language\" />
+    <Folder Include="public\monaco\vs\language\css\" />
+    <Folder Include="public\monaco\vs\language\html\" />
+    <Folder Include="public\monaco\vs\language\json\" />
+    <Folder Include="public\monaco\vs\language\typescript\" />
+    <Folder Include="public\plugins\" />
+    <Folder Include="public\plugins\font-awesome\" />
+    <Folder Include="public\plugins\font-awesome\css\" />
+    <Folder Include="services\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+</Project>

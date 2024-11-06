@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+/Roham.Services/.vs/Roham.Services
+/Roham.Services/bin/Debug/net8.0
+*.rar
+/Roham.Server/Roham.Server.1.0.3.exe
+/Roham.Services/obj
+/Roham.Services/.vs/ProjectEvaluation

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roham.Services", "Roham.Services.csproj", "{A916F738-11A9-4EBB-B521-19ADFA47AE7D}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Roham.Server", "..\Roham.Server\Roham.Server.njsproj", "{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A916F738-11A9-4EBB-B521-19ADFA47AE7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A916F738-11A9-4EBB-B521-19ADFA47AE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A916F738-11A9-4EBB-B521-19ADFA47AE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A916F738-11A9-4EBB-B521-19ADFA47AE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {058F92D1-4E98-4F8F-A66D-0215968877F2}
+	EndGlobalSection
+EndGlobal
