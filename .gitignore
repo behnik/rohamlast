@@ -134,3 +134,5 @@ dist
 /Roham.Server/Roham.Server.1.0.3.exe
 /Roham.Services/obj
 /Roham.Services/.vs/ProjectEvaluation
+/Roham.Server/obj/Debug
+/Roham.Server/bin

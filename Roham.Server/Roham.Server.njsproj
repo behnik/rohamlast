@@ -11,8 +11,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>65b43dbd-7e92-49fb-9c1d-2b5ae8dc70cb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>app.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -32,6 +31,7 @@
     <Content Include=".env" />
     <Content Include="app.js" />
     <Content Include="crons\files.js" />
+    <Content Include="crons\lock.js" />
     <Content Include="package.json" />
     <Content Include="public\css\bootstrap.rtl.min.css" />
     <Content Include="public\css\login.css" />

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Roham.Services.Services;
 
-public class LocksService
+public class LocksService()
 {
     private readonly ARMClass _axARMClass1 = new();
     private readonly Random _rand = new();
@@ -15,7 +15,7 @@ public class LocksService
     private readonly byte[,] _state_AES = new byte[4, 4];
     private readonly byte[,] _w_AES = new byte[4 * 11, 4];
     private readonly byte[] _temp_AES = new byte[4];
-    public byte[] key_AES = new byte[16];
+    private byte[] key_AES = new byte[16];
 
     #region variables
 
@@ -99,8 +99,7 @@ public class LocksService
                     var int_val_1 = DecodData(int_val_1_obj, IWhichData.INT_VAL1, RProg);
 
                     Console.WriteLine("Lock Succeeded.");
-                    return new LockViewModel
-                    {
+                    return new LockViewModel { 
                         IsExist = true,
                         SerialNumber = serial_number,
                         Value = int_val_1
@@ -109,7 +108,7 @@ public class LocksService
                 //if (bb != 100)
                 else
                 {
-                    Console.Beep(5000, 5000);
+                    //Console.Beep(5000, 5000);
                     Console.WriteLine("Lock Not Found!");
                     //throw new Exception("Lock Error!");
                     return new LockViewModel();
@@ -117,7 +116,7 @@ public class LocksService
             }
             else
             {
-                Console.Beep(5000, 5000);
+                //Console.Beep(5000, 5000);
                 Console.WriteLine("Lock Not Found!");
                 //throw new Exception("Lock Error!");
                 return new LockViewModel();
@@ -415,7 +414,7 @@ public class LocksService
         return bte1;
     }
 
-    public byte[] HexStringToByteArray(string hex)
+    private byte[] HexStringToByteArray(string hex)
     {
         string str;
         byte[] a = new byte[16];
@@ -466,7 +465,7 @@ public class LocksService
         }
     }
 
-    void KeyExpansion(byte[] AESKEY)
+    private void KeyExpansion(byte[] AESKEY)
     {
         int row;
         for (row = 0; row < _nk_AES; ++row)
@@ -496,7 +495,7 @@ public class LocksService
         return;
     }
 
-    void RotWord()
+    private void RotWord()
     {
         byte[] result = [_temp_AES[1], _temp_AES[2], _temp_AES[3], _temp_AES[0]];
         _temp_AES[0] = result[0];
@@ -505,7 +504,7 @@ public class LocksService
         _temp_AES[3] = result[3];
         return;
     }
-    void SubWord()
+    private void SubWord()
     {
         _temp_AES[0] = Sbox[_temp_AES[0] >> 4, _temp_AES[0] & 0x0f];
         _temp_AES[1] = Sbox[_temp_AES[1] >> 4, _temp_AES[1] & 0x0f];
@@ -514,7 +513,7 @@ public class LocksService
         return;
     }
 
-    void AddRoundKey(int round)
+    private void AddRoundKey(int round)
     {
 
         for (int r = 0; r < 4; ++r)
@@ -526,7 +525,7 @@ public class LocksService
         }
         return;
     }
-    void SubBytes()
+    private void SubBytes()
     {
         for (int r = 0; r < 4; ++r)
         {
@@ -537,7 +536,7 @@ public class LocksService
         }
         return;
     }
-    void ShiftRows()
+    private void ShiftRows()
     {
         byte[,] temp1 = new byte[4, 4];
         for (int r = 0; r < 4; ++r)  // copy State into temp1[]
@@ -556,7 +555,7 @@ public class LocksService
         }
         return;
     }
-    void MixColumns()
+    private void MixColumns()
     {
         byte[,] temp1 = new byte[4, 4];
         for (int r = 0; r < 4; ++r)  // copy State into temp1[]
@@ -576,11 +575,11 @@ public class LocksService
         return;
     }
 
-    byte gfmultby01(byte b)
+    private byte gfmultby01(byte b)
     {
         return b;
     }
-    byte gfmultby02(byte b)
+    private byte gfmultby02(byte b)
     {
         byte bte;
 
@@ -590,39 +589,39 @@ public class LocksService
             bte = (byte)(b << 1 ^ 0x1b);
         return bte;
     }
-    byte gfmultby03(byte b)
+    private byte gfmultby03(byte b)
     {
         byte bte;
         bte = (byte)(gfmultby02(b) ^ b);
         return bte;
     }
-    byte gfmultby09(byte b)
+    private byte gfmultby09(byte b)
     {
         byte bte;
         bte = (byte)(gfmultby02(gfmultby02(gfmultby02(b))) ^ b);
         return bte;
     }
-    byte gfmultby0b(byte b)
+    private byte gfmultby0b(byte b)
     {
         byte bte;
         bte = (byte)(gfmultby02(gfmultby02(gfmultby02(b))) ^ gfmultby02(b) ^ b);
         return bte;
     }
-    byte gfmultby0d(byte b)
+    private byte gfmultby0d(byte b)
     {
         byte bte;
         bte = (byte)(gfmultby02(gfmultby02(gfmultby02(b))) ^ gfmultby02(gfmultby02(b)) ^ b);
         return bte;
     }
 
-    byte gfmultby0e(byte b)
+    private byte gfmultby0e(byte b)
     {
         byte bte;
         bte = (byte)(gfmultby02(gfmultby02(gfmultby02(b))) ^ gfmultby02(gfmultby02(b)) ^ gfmultby02(b));
         return bte;
     }
 
-    public byte GenerateErrorCode(object OBJ, byte[] Key, byte[] bterand)
+    private byte GenerateErrorCode(object OBJ, byte[] Key, byte[] bterand)
     {
         byte[] Finalbte16 = new byte[16];
         byte[] bte16 = new byte[16];
@@ -650,7 +649,7 @@ public class LocksService
         return bb;
     }
 
-    public void ReverseAES(byte[] bteInput, ref byte[] output, byte[] Key)
+    private void ReverseAES(byte[] bteInput, ref byte[] output, byte[] Key)
     {
         string[] bte = new string[16];
         try
@@ -695,7 +694,7 @@ public class LocksService
         }
     }
 
-    void InvShiftRows()
+    private void InvShiftRows()
     {
         byte[,] temp1 = new byte[4, 4];
         for (int r = 0; r < 4; ++r)  // copy State into temp1[]
@@ -714,7 +713,7 @@ public class LocksService
         }
         return;
     }
-    void InvSubBytes()
+    private void InvSubBytes()
     {
         for (int r = 0; r < 4; ++r)
         {
@@ -725,7 +724,7 @@ public class LocksService
         }
         return;
     }  // InvSubBytes
-    void InvMixColumns()
+    private void InvMixColumns()
     {
         byte[,] temp1 = new byte[4, 4];
         for (int r = 0; r < 4; ++r)  // copy State into temp1[]
@@ -745,7 +744,7 @@ public class LocksService
         return;
     }  // InvMixColumns
 
-    public string DecodData(object obj, IWhichData iWhichData, uint RProg)
+    private string DecodData(object obj, IWhichData iWhichData, uint RProg)
     {
         ushort DataCheckSum1 = 0, DataCheckSum2 = 0;
         int DataCheckSumProg1 = 0, DataCheckSumProg2 = 0;
@@ -1032,7 +1031,7 @@ public class LocksService
         return str;
     }
 
-    public ushort BytesToWord(byte bteH, byte bteL)
+    private ushort BytesToWord(byte bteH, byte bteL)
     {
         ushort wrdTemp = bteH;
         wrdTemp <<= 8;
@@ -1041,7 +1040,7 @@ public class LocksService
         return wrdTemp;
     }
 
-    public int WordsToInt(ushort wrdH, ushort wrdL)
+    private int WordsToInt(ushort wrdH, ushort wrdL)
     {
         int iTemp;
         iTemp = wrdH;
@@ -1051,7 +1050,7 @@ public class LocksService
         return iTemp;
     }
 
-    public uint Func64(double x, int a)
+    private uint Func64(double x, int a)
     {
         uint Res = 0;
         double R1;
@@ -1731,7 +1730,7 @@ public class LocksService
         return Res;
     }
 
-    public bool FuncFirst(object obj, uint RandProg)
+    private bool FuncFirst(object obj, uint RandProg)
     {
         double p;
         bool Bool1 = false;
