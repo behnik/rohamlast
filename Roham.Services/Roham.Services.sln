@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roham.Services", "Roham.Ser
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Roham.Server", "..\Roham.Server\Roham.Server.njsproj", "{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Roham.Agent", "..\Roham.Agent\Roham.Agent.njsproj", "{E5089BE0-286B-454B-87C4-C140A72929CC}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Roham.ScreenSharing", "..\Roham.ScreenSharing\Roham.ScreenSharing.pyproj", "{8B52610C-266E-4F19-9CCE-29099B2C1983}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B43DBD-7E92-49FB-9C1D-2B5AE8DC70CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5089BE0-286B-454B-87C4-C140A72929CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5089BE0-286B-454B-87C4-C140A72929CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5089BE0-286B-454B-87C4-C140A72929CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5089BE0-286B-454B-87C4-C140A72929CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B52610C-266E-4F19-9CCE-29099B2C1983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B52610C-266E-4F19-9CCE-29099B2C1983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B52610C-266E-4F19-9CCE-29099B2C1983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B52610C-266E-4F19-9CCE-29099B2C1983}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

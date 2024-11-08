@@ -136,3 +136,6 @@ dist
 /Roham.Services/.vs/ProjectEvaluation
 /Roham.Server/obj/Debug
 /Roham.Server/bin
+/Roham.ScreenSharing/obj/Any CPU/Release
+/Roham.Agent/bin
+/Roham.Agent/obj/Debug

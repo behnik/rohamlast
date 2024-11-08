@@ -48,6 +48,8 @@ else {
 
     const network = require('./services/network');
 
+    const computers_cron = require('./crons/computers');
+
     //const ldap_cron = require('./crons/ldap');
     const files_cron = require('./crons/files');
 
@@ -56,6 +58,8 @@ else {
 
         //await ldap_cron.init();
         await files_cron.init();
+
+        await computers_cron.init();
 
         await routes.init(app);
         console.log(`server started at http://${addr}:${BASE_PORT};`);

@@ -30,6 +30,7 @@
   <ItemGroup>
     <Content Include=".env" />
     <Content Include="app.js" />
+    <Content Include="crons\computers.js" />
     <Content Include="crons\files.js" />
     <Content Include="crons\lock.js" />
     <Content Include="package.json" />
@@ -89,11 +90,11 @@
     <Content Include="public\monaco\vs\loader.js" />
     <Content Include="public\plugins\font-awesome\css\font-awesome.min.css" />
     <Content Include="README.md" />
-    <Content Include="services\computers.js" />
     <Content Include="services\cryptos.js" />
     <Content Include="services\db.js" />
     <Content Include="services\files.js" />
     <Content Include="services\lock.js" />
+    <Content Include="services\logger.js" />
     <Content Include="services\network.js" />
     <Content Include="services\pages.js" />
     <Content Include="services\permissions.js" />

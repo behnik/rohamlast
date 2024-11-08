@@ -1,4 +1,4 @@
-const computers_service = require('./computers');
+//const computers_service = require('./computers');
 
 exports.init = async (server, app) => {
     const io = require("socket.io")(server);
@@ -9,20 +9,20 @@ exports.init = async (server, app) => {
             //console.log("user disconnected");
         });
 
-        socket.on("hardware", async (data) => {
-            try {
-                console.log(`hardware emit called.`);
-                console.log(data.host_name);
-                await computers_service.upsert(data);
+        //socket.on("hardware", async (data) => {
+        //    try {
+        //        console.log(`hardware emit called.`);
+        //        console.log(data.host_name);
+        //        await computers_service.upsert(data);
 
-                await io.sockets.emit("computerAdded", data);
+        //        await io.sockets.emit("computerAdded", data);
 
-                return { code: 200 };
-            } catch (e) {
-                console.log(e);
-                return { code: 500, message: 'hardware emit failed.'};
-            }
-        });
+        //        return { code: 200 };
+        //    } catch (e) {
+        //        console.log(e);
+        //        return { code: 500, message: 'hardware emit failed.'};
+        //    }
+        //});
 
         socket.on("monitoring", async (data) => {
             await io.sockets.emit("monitoring", data);
